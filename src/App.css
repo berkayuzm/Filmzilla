@@ -33,3 +33,30 @@ width: auto;
   width: auto;
   
 }
+.category-loading-img{
+  height: 50px;
+  width: 100px;
+}
+.list-group-item:hover{
+  background-color: #F1F1F1;
+  cursor: pointer;
+}
+.card{
+  overflow: hidden;
+}
+.card img {
+  transition: transform 1.5s ease;
+}
+.card img:hover {
+  transform: scale(1.5);
+}
+.inside-card{
+  
+  border: 0;
+}
+.star-icon{
+
+  font-size: 15px;
+  color: #ffcab0;
+  margin-right: 5px;
+}

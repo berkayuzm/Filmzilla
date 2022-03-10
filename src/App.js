@@ -20,17 +20,21 @@ function App() {
     },
   };
   useEffect(() => {
-    axios
+    setTimeout(()=>{
+      axios
       .request(options)
       .then(function (response) {
+       
         setMovies(response.data.results.slice(0, 9));
       })
       .catch(function (error) {
         console.error(error);
       });
+    },1000)
+    
   }, []);
 
-  function listByCategory() {
+  function fillCategory() {
     var options = {
       method: "GET",
       url: "https://advanced-movie-search.p.rapidapi.com/genre/movie/list",
@@ -51,6 +55,25 @@ function App() {
         console.error(error);
       });
   }
+function listByCategory(category){
+  var options = {
+    method: 'GET',
+    url: 'https://advanced-movie-search.p.rapidapi.com/discover/movie',
+    params: {with_genres: category.id, page: '1'},
+    headers: {
+      'x-rapidapi-host': 'advanced-movie-search.p.rapidapi.com',
+      'x-rapidapi-key': '8fc6e10ab3msha7fe1dbb0240fe1p1cb818jsn6457af1b3b12'
+    }
+  };
+  
+  axios.request(options).then(function (response) {
+    setMovies(response.data.results);
+    
+    
+  }).catch(function (error) {
+    console.error(error);
+  });
+}
   return (
     <div className="App">
       <BackToTop />
@@ -58,7 +81,7 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col-md-3">
-            {<Category list={listByCategory} categoryList={categoryList} />}
+            {<Category list={fillCategory} categoryList={categoryList} listbyCategory={listByCategory}/>}
           </div>
           <div className="col-md-9 mt-3 content">
             <MovieList movies={movies} />

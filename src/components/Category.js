@@ -6,20 +6,23 @@ const Category = (props) => {
   useEffect(() => {
     setTimeout(() => {
       props.list()
-      console.log("deneme")
-    }, 2000);
+      
+    }, 3000);
   }, []);
-
+ 
   return (
     <div className=" mt-3">
-      <ul className="list-group ">
+      <ul className="list-group " >
         {
           props.categoryList.length>0? 
           props.categoryList.map((category)=>{
-            return <li key={category.id} className="list-group-item">{category.name}</li>
+            return <div key={category.id}  onClick={()=>props.listbyCategory(category)}> <li className="list-group-item" >{category.name}</li> </div> 
+            
+              
+            
           })
           :
-          <img src={loading} alt="" />
+          <img src={loading} className="category-loading-img" alt="" />
         }
         
       </ul>

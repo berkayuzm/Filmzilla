@@ -1,7 +1,7 @@
 
 window.onload = (event) => {
 let mybutton = document.getElementById("btn-back-to-top");
-console.log(mybutton)
+
 
 window.onscroll = function () {
   scrollFunction();
