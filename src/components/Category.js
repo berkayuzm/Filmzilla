@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import loading from "../img/loading.gif"
+const Category = (props) => {
+  
+ 
+  useEffect(() => {
+    setTimeout(() => {
+      props.list()
+      console.log("deneme")
+    }, 2000);
+  }, []);
 
-const Category = () => {
   return (
-    <div>
-      <ul className="list-group">
-        <li className="list-group-item active" aria-current="true">
-          An active item
-        </li>
-        <li className="list-group-item">A second item</li>
-        <li className="list-group-item">A third item</li>
-        <li className="list-group-item">A fourth item</li>
-        <li className="list-group-item">And a fifth one</li>
+    <div className=" mt-3">
+      <ul className="list-group ">
+        {
+          props.categoryList.length>0? 
+          props.categoryList.map((category)=>{
+            return <li key={category.id} className="list-group-item">{category.name}</li>
+          })
+          :
+          <img src={loading} alt="" />
+        }
+        
       </ul>
     </div>
   );
