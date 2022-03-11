@@ -8,7 +8,7 @@ const Category = (props) => {
       props.list()
       
     }, 3000);
-  }, []);
+  }, []); 
  
   return (
     <div className=" mt-3">
@@ -16,7 +16,7 @@ const Category = (props) => {
         {
           props.categoryList.length>0? 
           props.categoryList.map((category)=>{
-            return <div key={category.id}  onClick={()=>props.listbyCategory(category)}> <li className="list-group-item" >{category.name}</li> </div> 
+            return <div  key={category.id}  onClick={()=>props.listbyCategory(category)}> <li className="list-group-item list-parent mb-1" >{category.name}</li> </div> 
             
               
             
