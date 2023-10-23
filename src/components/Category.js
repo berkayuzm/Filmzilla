@@ -8,7 +8,7 @@ const Category = (props) => {
     setTimeout(() => {
       props.list()
       
-    }, 1000);
+    }, 2000);
   }, []); 
 
   return (
