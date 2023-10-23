@@ -15,7 +15,7 @@ function App() {
   const [categoryList, setCategoryList] = useState([]);
   const [themeMode ,setThemeMode]=useState("light");
   const [movie,setMovie]=useState({})
-  
+  const [loadingMovies,setLoadingMovies]=useState(true);
   
   function changeMode(){
     if(themeMode==="light"){
@@ -57,6 +57,7 @@ function App() {
         .then(function (response) {
           console.log(response);
           setMovies(response.data.results);
+          setLoadingMovies(false)
          
         })
         .catch(function (error) {
@@ -92,6 +93,7 @@ function App() {
   }
 
   function fillCategory() {
+    console.log("callıştı")
     var options = {
       method: "GET",
       url: "https://advanced-movie-search.p.rapidapi.com/genre/movie/list",
@@ -111,6 +113,7 @@ function App() {
       .request(options)
       .then(function (response) {
         let data = response.data.genres;
+        console.log("categories=>"+data.name)
         setCategoryList(data);
       })
       .catch(function (error) {
@@ -138,6 +141,7 @@ function App() {
     }, 500);
   }
   function listByCategory(category) {
+    setLoadingMovies(true);
     var options = {
       method: "GET",
       url: "https://advanced-movie-search.p.rapidapi.com/discover/movie",
@@ -152,6 +156,7 @@ function App() {
       .request(options)
       .then(function (response) {
         setMovies(response.data.results);
+        setLoadingMovies(false);
       })
       .catch(function (error) {
         console.error(error);
@@ -176,7 +181,7 @@ function App() {
               </div>
               <div className="col-md-9 mt-3 content">
                 <Routes>
-                  <Route path="/" element={<MovieList movies={movies}/>} />
+                  <Route path="/" element={<MovieList movies={movies} loading={loadingMovies}/>} />
                   <Route path="/details/:id" element={<MovieDetails movie={movie} getMovie={getMovie}/>} />
                 </Routes>
               </div>

@@ -6,10 +6,9 @@ import CategoryListItem from "./CategoryListItem";
 const Category = (props) => {
   useEffect(() => {
     setTimeout(() => {
-      
       props.list()
-    }, 2000);
-     
+      
+    }, 1000);
   }, []); 
 
   return (

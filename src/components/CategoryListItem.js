@@ -7,7 +7,7 @@ const CategoryListItem = (props) => {
   return (
       <Link to={"/"} key={props.category.id} className="category-link">
     <div onClick={() => {props.listbyCategory(props.category);}}>
-        <li  className="list-group-item list-parent mb-1">
+        <li  className="list-group-item list-parent mb-1 category-item">
           {props.category.name}
         </li>
     </div>

@@ -36,7 +36,7 @@
     width: 100px;
   }
   .card-img{
-    height: 200px;
+    height: 220px;
     width: auto;
     }
     #btn-back-to-top {
@@ -76,4 +76,7 @@
         flex-wrap: wrap;
         gap: 5px;
       }
+    }
+    .category-item:hover{
+      background-color: #E8E5E5;
     }
