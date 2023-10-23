@@ -14,17 +14,17 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background-color: ${({theme})=>theme.body};
-    transition: background-color 500ms linear;
+    transition: background-color 500ms ease-in;
   }
 
     .navbar{
       padding:0px;
       background-color:${({theme})=>theme.cardbody}!important;
-      transition: background-color 500ms linear;
+      transition: background-color 500ms ease-in;
     }
     .dark-mode-text{
         color:${({theme})=>theme.text};
-        transition: color 500ms linear;
+        transition: color 500ms ease-in;
         
     }
    
@@ -32,18 +32,18 @@ const GlobalStyle = createGlobalStyle`
     .card{
       overflow: hidden;
       background:${({theme})=>theme.cardbody};
-      transition: background 500ms linear;
+      transition: background 500ms ease-in;
       
     }
     .card-body{
         color:${({theme})=>theme.text};
-        transition: color 500ms linear;
+        transition: color 500ms ease-in;
 
     }
     .list-parent{
         background-color:${({theme})=>theme.cardbody};
         color:${({theme})=>theme.text};
-        transition: background-color 200ms linear;
+        transition: background-color 200ms ease-in;
         cursor:pointer;
         
     }

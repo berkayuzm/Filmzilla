@@ -55,3 +55,25 @@
     #btn-back-to-top i:hover{
       color: #142d4c;
     }
+    .category-link{
+      text-decoration: none;
+    }
+    .menu-button{
+     cursor: pointer;
+     display: none;
+    }
+    .category-list-item-active{
+      background-color: blueviolet;
+      color: white;
+    }
+   
+   
+    @media screen and (max-width: 767px) {
+     
+      .category{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+    }

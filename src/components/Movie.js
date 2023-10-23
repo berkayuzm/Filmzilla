@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Movie = (props) => {
   const {
+    id,
     backdrop_path,
     title,
     overview,
@@ -10,6 +12,7 @@ const Movie = (props) => {
     vote_average,
     vote_count,
   } = props.movie;
+  const link=`/details/${id}`
   return (
     <div className="shadow  mb-5 bg-body rounded-3">
       <div className="card">
@@ -21,13 +24,12 @@ const Movie = (props) => {
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{overview.length>70?overview.slice(0,70).concat("..."):(overview)}</p>
-          <a href="#" className="btn btn-info ">
+          <Link to={link} className="btn btn-info ">
             Detail
-          </a>
+          </Link>
           <div className="float-end">
-          <span className="badge bg-secondary">
-            
-          <i className="fa-regular fa-star star-icon" ></i><span>{vote_average}</span>
+                <span className="badge bg-secondary">
+                <i className="fa-regular fa-star star-icon" ></i><span>{vote_average}</span>
             </span>
           </div>
           
